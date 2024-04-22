@@ -2,13 +2,13 @@
   "name": "@flipple/core",
   "version": "1.0.0",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.tsx"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup src/index.tsx --format cjs,esm --dts",
     "dev": "npm run build -- --watch"
   },
   "devDependencies": {
@@ -26,6 +26,7 @@
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "@types/three": "^0.163.0",
+    "framer-motion-3d": "^11.1.7",
     "react": "^18.2.0",
     "three": "^0.163.0"
   }

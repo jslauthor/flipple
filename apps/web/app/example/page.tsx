@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
@@ -8,6 +8,7 @@ import {
   PresentationControls,
   RoundedBox,
 } from "@react-three/drei";
+import { Flipple } from "@flipple/core";
 
 function Card(props: any) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -42,6 +43,17 @@ function Card(props: any) {
 }
 
 export const Page = (): JSX.Element => {
+  const items = useMemo(() => ([
+    {
+      id: 'Box-1',
+      content: <Card />
+    },
+    {
+      id: 'Box-2',
+      content: <Card />
+    }
+  ]), []);
+
   return (
     <div className={styles.container}>
       <Canvas>
@@ -55,10 +67,11 @@ export const Page = (): JSX.Element => {
           intensity={Math.PI}
         />
         <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-        <PresentationControls speed={5} global>
+        {/* <PresentationControls speed={5} global>
           <Card position={[-3, 0, 0]} />
           <Card position={[3, 0, 0]} />
-        </PresentationControls>
+        </PresentationControls> */}
+        <Flipple items={items} />
       </Canvas>
     </div>
   );
